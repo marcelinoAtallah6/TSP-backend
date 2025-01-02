@@ -1,10 +1,10 @@
-package com.TSP_Backend.demo;
+package com.example.um;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TspBackendApplicationTests {
+class UmApplicationTests {
 
 	@Test
 	void contextLoads() {
