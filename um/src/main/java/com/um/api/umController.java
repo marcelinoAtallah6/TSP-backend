@@ -1,10 +1,10 @@
-package com.demo.microserviceone.controllers;
+package com.um.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController	
-public class AppController {
+public class umController {
 	
 	@GetMapping("/get")
 	public String home() {

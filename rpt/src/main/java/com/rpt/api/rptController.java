@@ -1,10 +1,11 @@
-package com.demo.microservicetwo.controllers;
+package com.rpt.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AppController {
+public class rptController {
 	
 	@GetMapping("/get")
 	public String home() {

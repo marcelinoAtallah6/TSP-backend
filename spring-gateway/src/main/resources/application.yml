@@ -13,14 +13,14 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: serviceOne
-          uri: lb://MICROSERVICE-ONE
+        - id: um
+          uri: lb://um
           predicates:
-            - Path=/service-one/**
-        - id: serviceTwo
-          uri: lb://MICROSERVICE-TWO
+            - Path=/um/**
+        - id: rpt
+          uri: lb://rpt
           predicates:
-            - Path=/service-two/**
+            - Path=/rpt/**
         - id: serviceThree
           uri: lb://MICROSERVICE-THREE
           predicates:
