@@ -21,9 +21,9 @@ spring:
           uri: lb://rpt
           predicates:
             - Path=/rpt/**
-        - id: serviceThree
-          uri: lb://MICROSERVICE-THREE
-          predicates:
-            - Path=/service-three/**
+#        - id: serviceThree
+#          uri: lb://MICROSERVICE-THREE
+#          predicates:
+#            - Path=/service-three/**
 
 

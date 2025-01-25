@@ -1,0 +1,104 @@
+package com.um.api.umapplication.model;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@Entity
+@Table(name = "um_applications", schema = "um")
+public class UMApplication {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "um_applications_seq")
+    @SequenceGenerator(name = "um_applications_seq", sequenceName = "um.s_um_users", allocationSize = 1)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "description")
+    private String description;
+
+    public String getRoute() {
+		return route;
+	}
+
+	public void setRoute(String route) {
+		this.route = route;
+	}
+
+	@Column(name = "icon")
+    private String icon;
+    
+    @Column(name = "route")
+    private String route;
+
+    @Column(name = "is_active")
+    private Boolean isActive;
+    
+    @JsonManagedReference
+    @OneToMany(mappedBy = "application")
+    private List<UMMenu> menus;
+
+    public List<UMMenu> getMenus() {
+		return menus;
+	}
+
+	public void setMenus(List<UMMenu> menus) {
+		this.menus = menus;
+	}
+
+	// Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+}
