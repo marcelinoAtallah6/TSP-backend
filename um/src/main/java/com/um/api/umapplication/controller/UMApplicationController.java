@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.um.api.umapplication.model.UMApplication;
+import com.um.api.umapplication.model.UMGroupApplication;
 import com.um.api.umapplication.service.UMApplicationService;
 
 @RestController
@@ -17,7 +17,7 @@ public class UMApplicationController {
 	private UMApplicationService umApplicationService;
 
 	@GetMapping("/getAllApplications")
-	public List<UMApplication> getAllApplications() {
+	public List<UMGroupApplication> getAllApplications() {
 		return umApplicationService.getAllApplications();
 	}
 

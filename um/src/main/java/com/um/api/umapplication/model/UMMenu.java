@@ -16,6 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -24,7 +25,7 @@ public class UMMenu {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "um_menus_seq")
-	@SequenceGenerator(name = "um_menus_seq", sequenceName = "um.s_um_users", allocationSize = 1)
+	@SequenceGenerator(name = "um_menus_seq", sequenceName = "um.s_um_menus", allocationSize = 1)
 	@Column(name = "id")
 	private Long id;
 
@@ -40,7 +41,7 @@ public class UMMenu {
 
 	@OneToMany(mappedBy = "parentMenu", fetch = FetchType.LAZY)
 	@JsonManagedReference
-	private List<UMMenu> childMenus;
+	private List<UMMenu> menus;
 
 	@Column(name = "name", nullable = false)
 	private String name;
@@ -54,9 +55,10 @@ public class UMMenu {
 	@Column(name = "is_active")
 	private Boolean isActive;
 
+	@JsonIgnore
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
-
+	@JsonIgnore
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
 
@@ -71,11 +73,11 @@ public class UMMenu {
 	}
 
 	public List<UMMenu> getChildMenus() {
-		return childMenus;
+		return menus;
 	}
 
-	public void setChildMenus(List<UMMenu> childMenus) {
-		this.childMenus = childMenus;
+	public void setChildMenus(List<UMMenu> menus) {
+		this.menus = menus;
 	}
 
 	public Long getId() {
