@@ -72,11 +72,11 @@ public class UMMenu {
 		this.parentMenu = parentMenu;
 	}
 
-	public List<UMMenu> getChildMenus() {
+	public List<UMMenu> getMenus() {
 		return menus;
 	}
 
-	public void setChildMenus(List<UMMenu> menus) {
+	public void setMenus(List<UMMenu> menus) {
 		this.menus = menus;
 	}
 

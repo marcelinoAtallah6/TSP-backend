@@ -2,6 +2,7 @@ package com.um.api.umapplication.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -71,8 +72,10 @@ public class UMApplication {
 	}
 
 	public List<UMMenu> getMenus() {
-		return menus;
-	}
+		if (menus == null) return null;
+	    return menus.stream()
+	                .filter(menu -> menu.getParentMenu() == null) // Only include menus with no parent
+	                .collect(Collectors.toList());	}
 
 	public void setMenus(List<UMMenu> menus) {
 		this.menus = menus;

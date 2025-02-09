@@ -17,10 +17,18 @@ spring:
           uri: lb://um
           predicates:
             - Path=/um/**
+        - id: kyc
+          uri: lb://kyc
+          predicates:
+            - Path=/kyc/**
         - id: rpt
           uri: lb://rpt
           predicates:
             - Path=/rpt/**
+        - id: store
+          uri: lb://store
+          predicates:
+            - Path=/store/**
 #        - id: serviceThree
 #          uri: lb://MICROSERVICE-THREE
 #          predicates:
